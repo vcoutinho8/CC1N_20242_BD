@@ -6,6 +6,7 @@
 
 ## Passo 2: Organize os Estudos de Caso
 - Crie uma **pasta separada** para cada um dos quatro estudos de caso.
+- Os estudos de caso estão no link: [link para acesso](https://github.com/gnrochabr/Banco_Dados/tree/main/2024_2/Estudos%20de%20Caso)
 - Dentro de cada pasta de estudo de caso, crie subpastas para os exercícios de:
   - **DDL (Data Definition Language)**
   - **DML (Data Manipulation Language)**
@@ -17,6 +18,7 @@
 - EST_CASO_II.sql
 - EST_CASO_III.sql
 - EST_CASO_IV.sql
+- EST_CASO_V.sql
 
 Esses exercícios serão avaliados com base no conteúdo prático visto em aula. Organize o código adequadamente para facilitar a correção.
 
