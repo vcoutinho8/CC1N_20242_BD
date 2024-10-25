@@ -14,7 +14,7 @@ Para cada um dos quatro estudos de caso fornecidos, siga estas instruções:
   - **DQL (Data Query Language)**: Consultas para recuperar informações do banco de dados.
 
 #### Estrutura de Exemplo:
-Dentro da pasta do estudo de caso, crie as subpastas e arquivos conforme o exemplo abaixo:
+Dentro da pasta de cada atividade, crie as subpastas e arquivos conforme o exemplo abaixo:
 
 ```
 PORTFOLIO/
