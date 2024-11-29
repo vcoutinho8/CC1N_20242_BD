@@ -1,0 +1,53 @@
+-- 1. Consultar todas as empresas cadastradas
+SELECT * FROM EMPRESAS;
+
+-- 2. Consultar os funcionários de uma empresa específica (Fortes Engenharia)
+SELECT * 
+FROM FUNCIONARIOS 
+WHERE ID_EMPRESA = 1;
+
+-- 3. Listar todos os editais abertos
+SELECT * 
+FROM EDITAIS 
+WHERE STATUS_EDITAL = TRUE;
+
+-- 4. Consultar os projetos de uma empresa específica (Fortes Engenharia)
+SELECT * 
+FROM PROJETOS 
+WHERE ID_EMPRESA = 1;
+
+-- 5. Verificar todas as despesas de um projeto (Fortificar Habitação)
+SELECT * 
+FROM DESPESAS 
+WHERE ID_PROJETO = 1;
+
+-- 6. Listar todos os ODS vinculados a um projeto (Fortificar Habitação)
+SELECT ODS.NOME_ODS, ODS.DESC_ODS 
+FROM ODS 
+JOIN PROJETO_ODS ON ODS.ID_ODS = PROJETO_ODS.ID_ODS 
+WHERE PROJETO_ODS.ID_PROJETO = 1;
+
+-- 7. Listar todos os projetos e seus valores aprovados
+SELECT PROJETOS.NOME_PROJETO, PROJETOS.VALOR_APROVADO_PROJ, EMPRESAS.NOME_EMP 
+FROM PROJETOS 
+JOIN EMPRESAS ON PROJETOS.ID_EMPRESA = EMPRESAS.ID_EMP;
+
+-- 8. Verificar o total de despesas de um projeto (Fortificar Habitação)
+SELECT ID_PROJETO, SUM(VALOR) AS TOTAL_DESPESAS 
+FROM DESPESAS 
+WHERE ID_PROJETO = 1 
+GROUP BY ID_PROJETO;
+
+-- 9. Listar as empresas que possuem projetos em editais abertos
+SELECT DISTINCT EMPRESAS.NOME_EMP 
+FROM EMPRESAS 
+JOIN PROJETOS ON EMPRESAS.ID_EMP = PROJETOS.ID_EMPRESA 
+JOIN EDITAIS ON PROJETOS.ID_EDITAL = EDITAIS.ID_EDITAL 
+WHERE EDITAIS.STATUS_EDITAL = TRUE;
+
+-- 10. Consultar projetos aprovados e suas respectivas informações
+SELECT PROJETOS.NOME_PROJETO, PROJETOS.DESC_PROJETO, PROJETOS.VALOR_APROVADO_PROJ, EMPRESAS.NOME_EMP, EDITAIS.NOME_EDITAL 
+FROM PROJETOS 
+JOIN EMPRESAS ON PROJETOS.ID_EMPRESA = EMPRESAS.ID_EMP 
+JOIN EDITAIS ON PROJETOS.ID_EDITAL = EDITAIS.ID_EDITAL 
+WHERE PROJETOS.STATUS_PROJETO = TRUE;
