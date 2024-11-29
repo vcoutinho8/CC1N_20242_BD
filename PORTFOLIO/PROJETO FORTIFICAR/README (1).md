@@ -1,4 +1,4 @@
-# Sistema de Gestão de Projetos e Editais
+# Sistema de Gestão para o Projeto Fortificar | 💻🏙️
 
 ## 1. Estrutura do Banco de Dados
 
