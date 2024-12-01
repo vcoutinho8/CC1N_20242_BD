@@ -7,7 +7,7 @@
 1. **EMPRESAS**  
    Armazena os dados das empresas cadastradas, que podem submeter projetos para participar dos editais.  
    - **Exemplo:** Fortes Engenharia, EcoBuild Sustentável.  
-   - **Campos incluem:** nome, CNPJ, endereço, contato e status (ativa/inativa).
+   - **Campos incluem:** nome, CNPJ, endereço, contato e status (ativa/inativa).  
 
 2. **FUNCIONARIOS**  
    Gerencia os dados dos funcionários vinculados às empresas.  
@@ -24,7 +24,8 @@
    - **Exemplo:** "Fortificar Habitação" submetido pela Fortes Engenharia.  
    - **Relacionamentos:**  
      - `EMPRESAS`: Empresa responsável.  
-     - `EDITAIS`: Edital vinculado.
+     - `EDITAIS`: Edital vinculado.  
+     - `FUNCIONARIOS`: Analista responsável.  
 
 5. **DESPESAS**  
    Registra os gastos associados a cada projeto aprovado.  
@@ -38,6 +39,23 @@
 7. **PROJETO_ODS**  
    Relaciona os projetos com os ODS que eles promovem.  
    - **Exemplo:** O projeto "Moradia Sustentável" está vinculado aos ODS "Erradicação da Pobreza" e "Consumo e Produção Responsáveis".
+
+---
+
+### Relacionamentos:
+
+- **EMPRESAS → FUNCIONARIOS**: 1:N  
+   (Uma empresa pode ter vários funcionários, mas cada funcionário está vinculado a uma única empresa.)  
+- **EMPRESAS → PROJETOS**: 1:N  
+   (Uma empresa pode submeter vários projetos, mas cada projeto pertence a uma única empresa.)  
+- **EDITAIS → PROJETOS**: 1:N  
+   (Um edital pode ser base para vários projetos, mas cada projeto pertence a um único edital.)  
+- **FUNCIONARIOS → PROJETOS**: 1:N  
+   (Um analista pode ser responsável por vários projetos, mas cada projeto possui apenas um analista responsável.)  
+- **PROJETOS → DESPESAS**: 1:N  
+   (Um projeto pode ter várias despesas associadas, mas cada despesa pertence a um único projeto.)  
+- **PROJETOS → ODS (via PROJETO_ODS)**: N:M  
+   (Um projeto pode promover vários ODS, e um ODS pode ser abordado em vários projetos.)  
 
 ---
 
@@ -73,7 +91,7 @@
 
 - **Transparência:** Verificar onde os recursos estão sendo investidos.  
 - **Gestão:** Acompanhar o status de projetos, despesas e valores aprovados.  
-- **Impacto:** Identificar quais ODS estão sendo promovidos por projetos específicos.
+- **Impacto:** Identificar quais ODS estão sendo promovidos por projetos específicos.  
 
 ---
 
@@ -82,4 +100,4 @@
 - **Organização:** Centralização das informações, reduzindo inconsistências.  
 - **Transparência:** Registro de despesas e vínculos com ODS promovem responsabilidade social.  
 - **Gestão eficiente:** Relacionamentos bem definidos permitem consultas rápidas e precisas.  
-- **Alinhamento estratégico:** Projetos vinculados a objetivos globais claros (ODS).
+- **Alinhamento estratégico:** Projetos vinculados a objetivos globais claros (ODS).  
